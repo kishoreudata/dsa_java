@@ -9,6 +9,11 @@ public class DoubleLL {
         list1.insertBefore(6,7);
         list1.display();
         // input - no of nodes = 4 , list 1 2 4 5
+        list1.deleteFirstNode();
+        list1.deleteLastNode();
+        list1.deleteNode(3);
+        System.out.println("after deletion");
+        list1.display();
     }
     class Node{
         public int data;
@@ -101,5 +106,56 @@ public class DoubleLL {
             current.prev.next=temp;
             current.prev=temp;
         }
+    }
+    public void deleteFirstNode(){
+        if(head==null) return;
+        if(head.next==null){
+            head=null;
+            return;
+        }
+        head=head.next;
+        head.prev=null;
+    }
+    public void deleteLastNode(){
+        if(head==null)return;
+        if(head.next==null){
+            head=null;
+            return;
+        }
+        Node current = head;
+        while(current.next!=null)
+            current=current.next;
+        current.prev.next=null;
+    }
+    public void deleteNode(int x){
+        if(head==null)return;
+        if(head.next==null){
+            if(head.data==x)
+                head=null;
+            else
+                System.out.println(x+" is not present in the list");
+            return;
+        }
+        if(head.data==x){
+            head=head.next;
+            head.prev=null;
+            return;
+        }
+        Node current = head.next;
+        while(current.next!=null){
+            if(current.data==x)
+                break;
+            current=current.next;
+        }
+        if(current.next!=null){
+            current.prev.next=current.next;
+            current.next.prev=current.prev;
+        }
+        else {
+            if(current.data==x)
+                current.prev.next=null;
+            else System.out.println(x+" is not present in the list");
+        }
+
     }
 }
