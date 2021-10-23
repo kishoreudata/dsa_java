@@ -14,6 +14,9 @@ public class DoubleLL {
         list1.deleteNode(3);
         System.out.println("after deletion");
         list1.display();
+        System.out.println("after reversal of list");
+        list1.reverseList();
+        list1.display();
     }
     class Node{
         public int data;
@@ -156,6 +159,18 @@ public class DoubleLL {
                 current.prev.next=null;
             else System.out.println(x+" is not present in the list");
         }
-
+    }
+    public void reverseList(){
+        if(head==null)return;
+        Node p=head,q=p.next;
+        p.next=null;
+        p.prev=q;
+        while (q!=null){
+            q.prev=q.next;
+            q.next=p;
+            p=q;
+            q=q.prev;
+        }
+        head=p;
     }
 }
