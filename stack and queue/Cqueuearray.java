@@ -1,7 +1,7 @@
 import java.util.Scanner;
 public class Cqueuearray {
     public static void main(String[] args){
-        queueCLL qL = new queueCLL();
+        Cqueuearray qL = new Cqueuearray();
         Scanner sc = new Scanner(System.in);
         int choice,x;
         while (true){
@@ -40,9 +40,14 @@ public class Cqueuearray {
             System.out.println("");
         }
     }
-    public int[] queuearray=new int[10];
-    public int front=-1;
-    public int rear=-1;
+    public int[] queuearray;
+    public int front;
+    public int rear;
+    public Cqueuearray(){
+        queuearray=new int[10];
+        front=-1;
+        rear=-1;
+    }
     public Cqueuearray(int maxSize){
         queuearray=new int[maxSize];
         front=-1;
@@ -52,7 +57,7 @@ public class Cqueuearray {
         return (front==-1);
     }
     public boolean isFull(){
-        return ((front==0 && rear== 1queuearray.length-1)||(front==rear+1));
+        return ((front==0 && rear== queuearray.length-1)||(front==rear+1));
     }
     public void insert(int x){
         if(isFull())System.out.println("Queue overflow");
