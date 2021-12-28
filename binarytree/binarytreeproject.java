@@ -13,6 +13,8 @@ public class binarytreeproject {
         System.out.println("Postorder");
         bt.postorder();
         System.out.println("Height of the tree is: "+bt.height());
+        System.out.println("Level order");
+        bt.levelorder();
 
     }
     class Node{
@@ -83,7 +85,7 @@ public class binarytreeproject {
         Node p;
         while (qu.size()!=0){
             p=qu.remove();
-            System.out.println();
+            System.out.println(p.data+" ");
             if(p.lchild!=null)qu.add(p.lchild);
             if(p.rchild!=null)qu.add(p.rchild);
         }
